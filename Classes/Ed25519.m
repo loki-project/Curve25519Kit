@@ -87,6 +87,26 @@ extern int curve25519_verify(const unsigned char *signature, /* 64 bytes */
     return success;
 }
 
++ (NSData *)throws_publicKeyFromCurve25519PublicKey:(NSData *)data
+{
+    if (!data) {
+        OWSRaiseException(NSInvalidArgumentException, @"Missing data.");
+    }
+
+    NSMutableData *publicKeyData = [NSMutableData dataWithLength:ECCKeyLength];
+    if (!publicKeyData) {
+        OWSFail(@"Could not allocate buffer");
+    }
+
+    if (ed25519_pubkey(
+            publicKeyData.mutableBytes, [data bytes])
+        == -1) {
+        OWSRaiseException(NSInternalInconsistencyException, @"Public Key couldn't be generated.");
+    }
+
+    return [publicKeyData copy];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

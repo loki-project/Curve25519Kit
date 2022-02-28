@@ -55,6 +55,8 @@
               didVerify:(BOOL *)didVerify
                   error:(NSError **)outError NS_REFINED_FOR_SWIFT;
 
++ (NSData *)throws_publicKeyFromCurve25519PublicKey:(NSData *)data NS_REFINED_FOR_SWIFT;
+
 @end
 
 NS_ASSUME_NONNULL_END

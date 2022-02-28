@@ -67,6 +67,31 @@ int curve25519_sign(unsigned char* signature_out,
    return 0;
 }
 
+void ed25519_pubkey(unsigned char* ed25519_pubkey_out,
+                    const unsigned char* curve25519_pubkey)
+{
+  fe mont_x, mont_x_minus_one, mont_x_plus_one, inv_mont_x_plus_one;
+  fe one;
+  fe ed_y;
+  unsigned char ed_pubkey[32];
+
+  /* Convert the Curve25519 public key into an Ed25519 public key.  In
+     particular, convert Curve25519's "montgomery" x-coordinate into an
+     Ed25519 "edwards" y-coordinate:
+
+     ed_y = (mont_x - 1) / (mont_x + 1)
+
+     NOTE: mont_x=-1 is converted to ed_y=0 since fe_invert is mod-exp
+  */
+  fe_frombytes(mont_x, curve25519_pubkey);
+  fe_1(one);
+  fe_sub(mont_x_minus_one, mont_x, one);
+  fe_add(mont_x_plus_one, mont_x, one);
+  fe_invert(inv_mont_x_plus_one, mont_x_plus_one);
+  fe_mul(ed_y, mont_x_minus_one, inv_mont_x_plus_one);
+  fe_tobytes(ed25519_pubkey_out, ed_y);
+}
+
 int curve25519_verify(const unsigned char* signature,
                       const unsigned char* curve25519_pubkey,
                       const unsigned char* msg, const unsigned long msg_len)
