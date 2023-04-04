@@ -66,7 +66,6 @@
 		B6EC097D197F559E0070F844 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6EC097B197F559E0070F844 /* InfoPlist.strings */; };
 		B6EC09DA197F55B90070F844 /* curve25519-donna.c in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0989197F55B90070F844 /* curve25519-donna.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		B6EC0A0B197F55E70070F844 /* Curve25519.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0A0A197F55E70070F844 /* Curve25519.m */; };
-		B6EC0A0E197F5B1E0070F844 /* Randomness.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0A0D197F5B1E0070F844 /* Randomness.m */; };
 		B6EC0B0F197F652A0070F844 /* Ed25519.m in Sources */ = {isa = PBXBuildFile; fileRef = B6EC0B0E197F652A0070F844 /* Ed25519.m */; };
 /* End PBXBuildFile section */
 
@@ -176,8 +175,6 @@
 		B6EC0989197F55B90070F844 /* curve25519-donna.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "curve25519-donna.c"; sourceTree = "<group>"; };
 		B6EC0A09197F55E70070F844 /* Curve25519.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Curve25519.h; path = ../../Classes/Curve25519.h; sourceTree = "<group>"; };
 		B6EC0A0A197F55E70070F844 /* Curve25519.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Curve25519.m; path = ../../Classes/Curve25519.m; sourceTree = "<group>"; };
-		B6EC0A0C197F5B1E0070F844 /* Randomness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Randomness.h; path = ../../Classes/Randomness.h; sourceTree = "<group>"; };
-		B6EC0A0D197F5B1E0070F844 /* Randomness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Randomness.m; path = ../../Classes/Randomness.m; sourceTree = "<group>"; };
 		B6EC0B0D197F652A0070F844 /* Ed25519.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Ed25519.h; path = ../../Classes/Ed25519.h; sourceTree = "<group>"; };
 		B6EC0B0E197F652A0070F844 /* Ed25519.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Ed25519.m; path = ../../Classes/Ed25519.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -419,8 +416,6 @@
 				B6EC0A0A197F55E70070F844 /* Curve25519.m */,
 				B6EC0B0D197F652A0070F844 /* Ed25519.h */,
 				B6EC0B0E197F652A0070F844 /* Ed25519.m */,
-				B6EC0A0C197F5B1E0070F844 /* Randomness.h */,
-				B6EC0A0D197F5B1E0070F844 /* Randomness.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -482,6 +477,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = B6EC094D197F559E0070F844;
@@ -525,7 +521,6 @@
 				B62C863F19CEEA9D00DCA580 /* ge_double_scalarmult.c in Sources */,
 				B62C863219CEEA9D00DCA580 /* fe_copy.c in Sources */,
 				B62C863719CEEA9D00DCA580 /* fe_mul.c in Sources */,
-				B6EC0A0E197F5B1E0070F844 /* Randomness.m in Sources */,
 				B6EC096A197F559E0070F844 /* AppDelegate.m in Sources */,
 				B62C865519CEEA9D00DCA580 /* sc_reduce.c in Sources */,
 				B6EC0966197F559E0070F844 /* main.m in Sources */,

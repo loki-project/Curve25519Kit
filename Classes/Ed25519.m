@@ -14,6 +14,9 @@ extern int curve25519_verify(const unsigned char *signature, /* 64 bytes */
     const unsigned char *msg,
     const unsigned long msg_len);
 
+extern void ed25519_pubkey(unsigned char* ed25519_pubkey_out, /* 32 bytes */
+    const unsigned char* curve25519_pubkey); /* 32 bytes */
+
 @interface ECKeyPair ()
 
 - (NSData *)throws_sign:(NSData *)data;
@@ -98,11 +101,7 @@ extern int curve25519_verify(const unsigned char *signature, /* 64 bytes */
         OWSFail(@"Could not allocate buffer");
     }
 
-    if (ed25519_pubkey(
-            publicKeyData.mutableBytes, [data bytes])
-        == -1) {
-        OWSRaiseException(NSInternalInconsistencyException, @"Public Key couldn't be generated.");
-    }
+    ed25519_pubkey(publicKeyData.mutableBytes, [data bytes]);
 
     return [publicKeyData copy];
 }
